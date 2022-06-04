@@ -1,23 +1,24 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { decreaseCounter, increaseCounter } from './actionCreators/counterActions';
+import { actions } from './reducers/counterSlice';
 import './App.css';
 
 function App() {
 
-  const counter = useSelector(state => state.counterReducer.counter);
+  const counter = useSelector(state => state.counter);
   const dispatch = useDispatch();
 
   const handleIncreaseCounter = () => {
-    dispatch(increaseCounter());
+    dispatch(actions.increment());
   }
 
   const handleDecreaseCounter = () => {
-    dispatch(decreaseCounter());
+    dispatch(actions.decrement());
   }
 
   return (
     <div className="App">
       <h1>Counter APP</h1>
+      <p>(with redux-toolkit)</p>
       <div>Counter Value: <h2>{counter}</h2></div>
       <button onClick={handleIncreaseCounter}>Increment</button> - <button onClick={handleDecreaseCounter}>Decrement</button>
     </div>
