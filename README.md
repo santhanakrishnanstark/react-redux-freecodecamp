@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# React Redux Tutorial Practice from freeCodeCamp
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is totally a practice react-redux followed by the video from freecodecamp, but not exactly followed as per the video some of the design and concepts I have done my own. here I attached the freecodecamp video link for your reference.
+
+[![Watch the video](https://img.youtube.com/vi/zrs7u6bdbUw/mqdefault.jpg)](https://www.youtube.com/watch?v=zrs7u6bdbUw)
 
 ## Available Scripts
 
