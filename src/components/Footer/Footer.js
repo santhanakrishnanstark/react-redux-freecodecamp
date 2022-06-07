@@ -6,7 +6,7 @@ const Footer = () => {
 
     let total = 0;
     const itemsList = useSelector(state => state.cart.itemsList);
-    itemsList.forEach(item => {
+    itemsList && itemsList.forEach(item => {
         total += item.totalPrice
     })
 

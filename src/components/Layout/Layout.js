@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { uiActions } from "../../store/ui-slice";
+import { fetchData, sendCartData } from "../../store/cart-actions";
 import CartItems from "../Cart/CartItems";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
@@ -19,40 +19,20 @@ const Layout = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        dispatch(fetchData());
+    }, [dispatch])
+
+    useEffect(() => {
         if(firstRender) {
             firstRender = false;
             return;
         }
-        const sendRequest = async () => {
-            // send state as sending request
-            dispatch(uiActions.showNotification({
-                open: true,
-                message: 'Sending Request',
-                type: 'warning'
-            }));
-            
-            const res = await fetch('https://redux-shopping-f8835-default-rtdb.asia-southeast1.firebasedatabase.app/cartItems.json', {
-                method: "PUT",
-                body: JSON.stringify(cart)
-            });
-            const data = await res.json();
-            // send state as request is successful
-            dispatch(uiActions.showNotification({
-                open: true,
-                message: 'Send Request to database successfully',
-                type: 'success'
-            }));
+
+        if (cart.changed) {
+            dispatch(sendCartData(cart));
         }
 
-        sendRequest().catch(err => {
-            // send state as error
-            dispatch(uiActions.showNotification({
-                open: true,
-                message: 'Sending Request failed',
-                type: 'error'
-            }));
-        });
-    }, [cart]);
+    }, [cart, dispatch]);
 
     return (
         <>
