@@ -1,0 +1,11 @@
+.cart-container ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.cart-container .cartItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+}

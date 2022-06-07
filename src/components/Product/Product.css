@@ -1,0 +1,18 @@
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    list-style-type: none;
+}
+
+.products-container li {
+    text-align: center;
+    box-shadow: 0 2px 6px #ccc;
+    padding-bottom: 30px;
+}
+
+.products-container img {
+    width: 300px;
+    height: 300px;
+}
